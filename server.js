@@ -10,12 +10,26 @@ app.use(express.static("public"));
 let patients = [];
 
 app.post("/add", (req, res) => {
-  patients.push(req.body);
-  res.json({ message: "Patient added" });
+  const patient = {
+    id: Date.now(),
+    name: req.body.name,
+    age: req.body.age,
+    symptoms: req.body.symptoms,
+    date: new Date().toLocaleString()
+  };
+
+  patients.push(patient);
+  res.json({ message: "Patient added", patient });
 });
 
 app.get("/patients", (req, res) => {
   res.json(patients);
+});
+
+app.delete("/patients/:id", (req, res) => {
+  const id = Number(req.params.id);
+  patients = patients.filter((p) => p.id !== id);
+  res.json({ message: "Patient deleted" });
 });
 
 app.listen(3000, () => {
