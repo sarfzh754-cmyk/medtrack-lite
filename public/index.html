@@ -1,25 +1,74 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>MedTrack Lite</title>
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>MedTrack Pro</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="container">
-<h1>🏥 MedTrack Lite</h1>
+<div class="app">
+  <aside class="sidebar">
+    <h2>🏥 MedTrack</h2>
+    <p>Clinical Dashboard</p>
+    <nav>
+      <a class="active">Patient Records</a>
+      <a>Appointments</a>
+      <a>Prescriptions</a>
+      <a>Reports</a>
+    </nav>
+  </aside>
 
-<form id="patientForm">
-<input id="name" placeholder="Patient Name" required>
-<input id="age" placeholder="Age" required>
-<input id="symptoms" placeholder="Symptoms" required>
-<button type="submit">Add Patient</button>
-</form>
+  <main class="main">
+    <header>
+      <div>
+        <h1>Patient Management</h1>
+        <p>Record symptoms, vitals, diagnosis and prescriptions.</p>
+      </div>
+      <input id="search" placeholder="Search patient..." />
+    </header>
 
-<h2>Patients</h2>
-<ul id="patientList"></ul>
+    <section class="stats">
+      <div><h3 id="totalPatients">0</h3><p>Total Patients</p></div>
+      <div><h3 id="criticalPatients">0</h3><p>Critical Cases</p></div>
+      <div><h3 id="stablePatients">0</h3><p>Stable Cases</p></div>
+    </section>
+
+    <section class="content">
+      <form id="patientForm" class="panel">
+        <h2>Add Clinical Record</h2>
+
+        <div class="grid">
+          <input id="name" placeholder="Patient Name" required>
+          <input id="age" type="number" placeholder="Age" required>
+          <select id="gender" required>
+            <option value="">Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+          </select>
+          <select id="status" required>
+            <option value="">Condition</option>
+            <option>Stable</option>
+            <option>Observation</option>
+            <option>Critical</option>
+          </select>
+        </div>
+
+        <textarea id="symptoms" placeholder="Presenting Symptoms" required></textarea>
+        <textarea id="diagnosis" placeholder="Provisional Diagnosis" required></textarea>
+        <textarea id="prescription" placeholder="Prescription / Advice" required></textarea>
+
+        <button type="submit">＋ Add Patient Record</button>
+      </form>
+
+      <section class="panel">
+        <h2>Clinical Records</h2>
+        <div id="patientList"></div>
+      </section>
+    </section>
+  </main>
 </div>
 
 <script src="app.js"></script>
