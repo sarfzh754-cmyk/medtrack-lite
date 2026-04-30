@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const form = document.getElementById("patientForm");
 const list = document.getElementById("patientList");
 
@@ -40,3 +41,6 @@ function removePatient(index){
   patients.splice(index,1);
   render();
 }
+=======
+
+>>>>>>> b7835905a71aaa2ffe4d9e2200316b99497903e1

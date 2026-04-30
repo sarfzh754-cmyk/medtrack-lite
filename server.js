@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 const express = require("express");
 const cors = require("cors");
 
@@ -35,3 +36,29 @@ app.delete("/patients/:id", (req, res) => {
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
 });
+=======
+const express = require("express");
+const cors = require("cors");
+
+const app = express();
+
+app.use(cors());
+app.use(express.json());
+app.use(express.static("public"));
+
+let patients = [];
+
+app.post("/add", (req, res) => {
+  patients.push(req.body);
+  res.json({ message: "Patient added" });
+});
+
+app.get("/patients", (req, res) => {
+  res.json(patients);
+});
+
+// 🔥 THIS LINE WAS MISSING (most important)
+app.listen(3000, () => {
+  console.log("Server running on http://localhost:3000");
+});
+>>>>>>> b7835905a71aaa2ffe4d9e2200316b99497903e1
