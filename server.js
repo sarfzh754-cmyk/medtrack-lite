@@ -18,7 +18,7 @@ app.get("/patients", (req, res) => {
   res.json(patients);
 });
 
-// ✅ VERY IMPORTANT (this keeps server running)
+// 🔥 THIS LINE WAS MISSING (most important)
 app.listen(3000, () => {
   console.log("Server running on http://localhost:3000");
 });
